@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Acme_Quotes extension
+ * 
+ * @category       Acme
+ * @package        Acme_Quotes
+acme
+ */
+-->
+<widgets>
+    <quotes_quote_view type="acme_quotes/quote_widget_view" translate="name description" module="acme_quotes">
+        <name>Quote view</name>
+        <description>Quote view widget</description>
+        <is_email_compatible>0</is_email_compatible>
+        <parameters>
+            <quote_id type="complex" translate="label">
+                <visible>1</visible>
+                <required>1</required>
+                <label>Quote</label>
+                <type>label</type>
+                <helper_block>
+                    <type>acme_quotes/adminhtml_quote_widget_chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Quote</open>
+                        </button>
+                    </data>
+                </helper_block>
+                <sort_order>120</sort_order>
+            </quote_id>
+        </parameters>
+    </quotes_quote_view>
+    <quotes_quote_link type="acme_quotes/quote_widget_link" translate="name description" module="acme_quotes">
+        <name>Quote link</name>
+        <description>Quote link widget</description>
+        <is_email_compatible>0</is_email_compatible>
+        <parameters>
+            <quote_id type="complex" translate="label">
+                <visible>1</visible>
+                <required>1</required>
+                <label>Quote</label>
+                <type>label</type>
+                <helper_block>
+                    <type>acme_quotes/adminhtml_quote_widget_chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Quote</open>
+                        </button>
+                    </data>
+                </helper_block>
+                <sort_order>130</sort_order>
+            </quote_id>
+        </parameters>
+    </quotes_quote_link>
+</widgets>

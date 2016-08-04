@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Acme_Quotes extension
+ * 
+ * @category       Acme
+ * @package        Acme_Quotes
+acme
+ */
+-->
+<config>
+    <modules>
+        <Acme_Quotes>
+            <version>1.0.3</version>
+        </Acme_Quotes>
+    </modules>
+    <global>
+        <resources>
+            <acme_quotes_setup>
+                <setup>
+                    <module>Acme_Quotes</module>
+                    <class>Acme_Quotes_Model_Resource_Setup</class>
+                </setup>
+            </acme_quotes_setup>
+        </resources>
+        <blocks>
+            <acme_quotes>
+                <class>Acme_Quotes_Block</class>
+            </acme_quotes>
+        </blocks>
+        <helpers>
+            <acme_quotes>
+                <class>Acme_Quotes_Helper</class>
+            </acme_quotes>
+        </helpers>
+        <models>
+            <acme_quotes>
+                <class>Acme_Quotes_Model</class>
+                <resourceModel>acme_quotes_resource</resourceModel>
+            </acme_quotes>
+            <acme_quotes_resource>
+                <class>Acme_Quotes_Model_Resource</class>
+                <entities>
+                    <quote>
+                        <table>acme_quotes_quote</table>
+                    </quote>
+                    <quote_store>
+                        <table>acme_quotes_quote_store</table>
+                    </quote_store>
+                </entities>
+            </acme_quotes_resource>
+        </models>
+    </global>
+    <adminhtml>
+        <layout>
+            <updates>
+                <acme_quotes>
+                    <file>acme_quotes.xml</file>
+                </acme_quotes>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Acme_Quotes>
+                    <files>
+                        <default>Acme_Quotes.csv</default>
+                    </files>
+                </Acme_Quotes>
+            </modules>
+        </translate>
+        <global_search>
+            <quote>
+                <class>acme_quotes/adminhtml_search_quote</class>
+                <acl>acme_quotes</acl>
+            </quote>
+        </global_search>
+    </adminhtml>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Acme_Quotes before="Mage_Adminhtml">Acme_Quotes_Adminhtml</Acme_Quotes>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <frontend>
+        <!--<routers>
+            <acme_quotes>
+                <use>standard</use>
+                <args>
+                    <module>Acme_Quotes</module>
+                    <frontName>acme_quotes</frontName>
+                </args>
+            </acme_quotes>
+        </routers> -->
+        <layout>
+            <updates>
+                <acme_quotes>
+                    <file>acme_quotes.xml</file>
+                </acme_quotes>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Acme_Quotes>
+                    <files>
+                        <default>Acme_Quotes.csv</default>
+                    </files>
+                </Acme_Quotes>
+            </modules>
+        </translate>
+    </frontend>
+    <default>
+        <acme_quotes>
+            <quote>
+                <breadcrumbs>1</breadcrumbs>
+                <rss>1</rss>
+                <meta_title>Testimonials</meta_title>
+            </quote>
+        </acme_quotes>
+    </default>
+</config>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Acme_Quotes extension
+ * 
+ * @category       Acme
+ * @package        Acme_Quotes
+  * @author        Dejan Beljic <dbeljic@Acmegroup.com>
+ */
+-->
+<config>
+    <modules>
+        <Acme_Quotes>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Core />
+             </depends>
+        </Acme_Quotes>
+    </modules>
+</config>

@@ -1,0 +1,72 @@
+<?php
+/**
+ * Acme_Quotes extension
+ *
+ * @category       Acme
+ * @package        Acme_Quotes
+ */
+/**
+ * Quote list template
+ *
+ * @category    Acme
+ * @package     Acme_Quotes
+ * @author      Dejan Beljic <dbeljic@Acmegroup.com>
+ */
+?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php $_quotes = $this->getQuotes(); ?>
+<?php $count = $this->getCount() ? $this->getCount() : 1; ?>
+<?php $i = 0;
+if ($_quotes->getSize() > 0) : ?>
+<div class="quotes-container">
+    <div class="quotes-slideshow-wrapper">
+        <div class="quotes-slideshow-container">
+            <div class="quote-title">
+                <h2><?php echo Mage::helper('Acme_quotes')->__($this->getTitle()) ?></h2>
+            </div>
+            <ul class="quotes-slideshow data-cycle-auto-height=container">
+                <?php foreach ($_quotes as $_quote) : ?>
+                    <?php $_img = '<img id="image" src="' . Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'quote/image' . $_quote->getData('image') . '"
+                    alt="' . $_quote->getName() . '" title="' . $_quote->getName() . '" class="quote_image" />'; ?>
+                    <li>
+                        <div class="quote-container">
+                            <div class="quote-image"><?php if ($_quote->getData('image')) {
+                                    echo $_img;
+                                } ?></div>
+                            <div class="quote-quotation"><?php echo $_quote->getData('quotation') ?></div>
+                            <div class="quote-author"><span><?php echo $_quote->getData('author') ?></span></div>
+                        </div>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+<script type="application/javascript">
+
+    var maxSlides,
+        width = $j(window).width();
+
+    if (width < 430) {
+        maxSlidesVal = 1;
+    } else {
+        maxSlidesVal = <?php echo $count; ?>;
+    }
+
+    // Bx slider calls
+    jQuery('.quotes-slideshow').bxSlider({
+        mode: 'horizontal',
+        auto: false,
+        pager: false,
+  		slideWidth: 290,
+        controls: true,
+        infiniteLoop: false,
+        minSlides: maxSlidesVal,
+        maxSlides: maxSlidesVal,
+        moveSlides: 1,
+        hideControlOnEnd: false,
+        slideMargin: 30
+    });
+
+</script>

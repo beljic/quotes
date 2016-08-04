@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Acme_Quotes extension
+ * 
+ * @category       Acme
+ * @package        Acme_Quotes
+ * @author          Dejan Beljic <dbeljic@Acmegroup.com>
+ */
+-->
+<layout>
+    <acme_quotes_quote_index translate="label" module="Acme_quotes">
+        <label>Quotes list</label>
+        <update handle="page_one_column" />
+        <reference name="content">
+            <block type="acme_quotes/quote_list" name="quote_list" template="acme_quotes/quote/list.phtml" />
+        </reference>
+    </acme_quotes_quote_index>
+    <acme_quotes_quote_view translate="label" module="Acme_quotes">
+        <label>Quote view page</label>
+        <update handle="page_one_column" />
+        <reference name="content">
+            <block type="acme_quotes/quote_view" name="quote_view" template="acme_quotes/quote/view.phtml" />
+        </reference>
+    </acme_quotes_quote_view>
+    <cms_index_index>
+        <reference name="head">
+            <action method="addItem"><type>skin_js</type><name>js/jquery.bxslider.min.js</name></action>
+            <action method="addItem"><type>skin_css</type><name>css/jquery.bxslider.css</name></action>
+            <action method="addItem"><type>skin_js</type><name>js/quotes/quotes.js</name></action>
+        </reference>
+        <reference name="content">
+            <block type="acme_quotes/quote_slider" name="quote_slider" title="TEst" after="-" template="acme_quotes/quote/slider.phtml">
+                <action method="setTitle"><title>Testimonials</title></action>
+                <action method="setCount"><count>3</count></action>
+            </block>
+        </reference>
+    </cms_index_index>
+</layout>
